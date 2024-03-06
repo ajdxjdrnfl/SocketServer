@@ -106,6 +106,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,11 +131,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IOCPServer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NonBlockingServer.cpp" />
     <ClCompile Include="OverlappedServer.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SelectServer.cpp" />
+    <ClCompile Include="SocketServer.cpp" />
+    <ClCompile Include="WSAEventServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IOCPServer.h" />
+    <ClInclude Include="NonBlockingServer.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="SelectServer.h" />
     <ClInclude Include="OverlappedServer.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="SocketServer.h" />
+    <ClInclude Include="WSAEventServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

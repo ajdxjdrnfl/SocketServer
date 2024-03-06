@@ -1,8 +1,8 @@
 #pragma once
 #include "Server.h"
 
-class OverlappedServer : public Server
+class NonBlockingServer : public Server
 {
-public:
 	virtual int Run() override;
 };
+

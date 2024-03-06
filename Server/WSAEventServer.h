@@ -1,7 +1,7 @@
 #pragma once
 #include "Server.h"
 
-class OverlappedServer : public Server
+class WSAEventServer : public Server
 {
 public:
 	virtual int Run() override;

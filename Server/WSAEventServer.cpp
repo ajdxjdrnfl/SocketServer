@@ -1,36 +1,13 @@
-﻿#pragma comment(lib, "Ws2_32")
-#include <iostream>
-#include <vector>
-#include <stdio.h>
-#include <stdlib.h>
-#include <ws2tcpip.h>
-#include <winsock2.h>
-#include <thread>
-
-const int BUF_SIZE = 1000;
-
-struct Session // 커스텀 구조체 선언
-{
-	SOCKET socket = INVALID_SOCKET;
-	char recvBuffer[BUF_SIZE] = {};
-	int recvBytes = 0;
-};
+﻿#include "pch.h"
+#include "WSAEventServer.h"
 
 
 
-
-using namespace std;
-
-
-int WsaEventmain()
+int WSAEventServer::Run()
 {
 	WSADATA wsaData; // 소켓에 대한 데이터 구조체
 
 	vector<Session> sessions;
-
-	// select 용 set 데이터
-	fd_set reads;
-	fd_set writes;
 
 	sessions.reserve(100);
 
